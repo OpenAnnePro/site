@@ -43,7 +43,23 @@ make annepro2/c15
 make annepro2/c18
 ```
 This should complete without any error. And you should be able to see a file named
-`annepro2_c15(18)_default.bin` in your directory.
+`annepro2_c15(18)_default.bin` in your directory. This is a compiled keymap profile. This will be flashed on your 
+keyboard later. You can also see additional default and other user-made keymaps in the same directory. You can choose
+to flash one of these instead. For specific information on their differences, check their keymap.c file in
+`annepro_qmk/keyboards/annepro2/keymaps/*profile*/keymap.c`.
+
+`annepro2_c15(18)_default.bin` has the exact same mapping as the default Obinskit, but with no caps-lock and
+layer indicators.
+
+`annepro2_c15(18)_default-full-caps.bin` is the same as previous, but the keyboard changes to red LEDs to indicate
+caps-lock.
+
+`annepro2_c15(18)_default-layer-indicators.bin` has the caps-lock indicator and it changes the LEDs to indicate what layer
+you're on.
+
+Check the customization page for more information on these keymaps and customizing your own keymap:
+[Customization]({% link customization.md %}){: .btn }
+
 
 # Flashing the firmware
 0. Put the keyboard into DFU/IAP mode.
