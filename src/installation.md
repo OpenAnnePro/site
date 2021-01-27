@@ -64,7 +64,7 @@ Check the customization page for more information on these keymaps and customizi
 # Flashing the firmware
 0. Put the keyboard into DFU/IAP mode.
 0. Run annepro2_tools with the firmware you just built.
-**Please substitute with correct path**
+**Please substitute with the correct paths and correct bin file if you chose another keymap profile**
 ```bash
 annepro2_tools annepro2_c15_default.bin
 ```
