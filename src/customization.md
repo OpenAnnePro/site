@@ -29,6 +29,21 @@ do much more than this. Just check the QMK docs for more info.
 
 As an example, to make the ESC key produce an "A," switch `KC_ESC` to `KC_A`.
 
+# KeymapCEditor
+
+There is an extension for VSCode called [KeymapCEditor](https://marketplace.visualstudio.com/items?itemName=Ciantic.keymapceditor-vsc)
+that gives a user interface, making it easier to create mappings. After installing it, open the extension by pressing `CTRL+SHIFT+P` and
+search `keymap`. You should see `Show KeymapCEditor ...`. Select it to open it. The Anne Pro 2 isn't officially supported
+by QMK, so you have to choose a keyboard with the same layout. Choose "Practice 60", and selecting "ANSI" for type.
+When changing a key's mapping, you still need to manually enter the QMK keycode. The extension currently doesn't support
+creating macros, so you still need to do that by hand.
+
+# Macros
+
+To create macros, follow [this guide](https://beta.docs.qmk.fm/using-qmk/advanced-keycodes/feature_macros). You may need
+to be familiar with C. You can also follow [this youtube video](https://www.youtube.com/watch?v=WITZaRsoO_Q) for a
+visual guide instead.
+
 # Changing Default LED Profile
 
 You should see this function in your `keymap.c` file if it's based on one of the defaults:
