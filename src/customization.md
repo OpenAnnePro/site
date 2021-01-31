@@ -4,13 +4,11 @@ permalink: /customization/
 layout: page
 nav_order: 3
 ---
-
 # Special Keys on the default keymaps
 
 0. `FN2 + 8`: Disable LEDs. Keycode = KC_AP_LED_OFF
 0. `FN2 + 9`: Enable LEDs / Switch profiles. Keycode = KC_AP_LED_ON
 0. `FN2 + 0`: Change brightness. Keycode = KC_AP_LED_NEXT_INTENSITY
-0. `FN2 + ESC`: Put keyboard into IAP. Keycode = KC_AP_IAP_MODE
 
 # Keymaps
 
