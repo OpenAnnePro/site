@@ -17,6 +17,10 @@ Checkout the docker build script provided by `@zinosat`.
 
 # Get AnnePro2 Tools
 
+If you want the executable instead of compiling it yourself, [download it here]
+(https://ci.codetector.org/job/OpenAnnePro/job/AnnePro2-Tools/job/master/). Windows and Linux versions are available.
+Otherwise, follow the steps below:
+
 0. Install the latest stable `rust` toolchain using [rustup](https://rustup.rs/)
 0. Also install [Visual Studio Community edition](https://visualstudio.microsoft.com/downloads/)
 including the C/C++ module to prevent errors while compiling
@@ -30,6 +34,8 @@ cargo build --release
 
 # Get QMK firmware
 *Hint: If you are on windows, I recommend completing this step using WSL. YMMV*
+
+Manually compiling the QMK firmware is emphasized because this is what you modify to customize the keyboard.
 0. Clone our fork of the QMK firmware by using the command below. (Install Git if needed)
 ```bash
 git clone https://github.com/OpenAnnePro/qmk_firmware.git annepro-qmk --recursive --depth 1
@@ -86,7 +92,10 @@ If the tool doesn't list the keyboard please double check you have the keyboard 
 
 # Anne Pro 2 Shine
 
-Building the shine firmware is very simailar to the QMK firmware.
+If you want the binary instead of compiling it yourself, [download it here]
+(https://ci.codetector.org/job/OpenAnnePro/job/AnnePro2-Shine/job/master/). Otherwise, follow the steps below:
+
+Building the shine firmware is very similar to the QMK firmware.
 
 0. Checkout the repository using
 ```bash
