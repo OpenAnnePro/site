@@ -60,7 +60,7 @@ you're on.
 Check the [customization page]({% link customization.md %}) for more information on these keymaps and customizing your own keymap
 
 # Flashing the firmware
-0. Put the keyboard into DFU/IAP mode.
+0. Put the keyboard into DFU/IAP mode by unplugging the keyboard, then holding ESC while plugging it back in.
 0. Run annepro2_tools with the firmware you just built.
 **Please substitute with the correct paths and correct bin file if you chose another keymap profile**
 ```bash
@@ -103,9 +103,12 @@ make
 ```
 0. If built without error you can find the binary in `build/` directory. You will flash the .bin file using annepro2 tools.
 ```bash
+# --boot automatically restarts the keyboard into normal mode. Remove it if you are going to flash something else next.
 # for C15
-annepro2_tools -t led build/annepro2-shine-C15.bin
+annepro2_tools --boot -t led build/annepro2-shine-C15.bin
 # for C18
-annepro2_tools -t led -i=[[interface_number]] build/annepro2-shine-C18.bin
+annepro2_tools --boot -t led -i=[[interface_number]] build/annepro2-shine-C18.bin
 ```
-Enjoy!
+
+With QMK installed, you can now easily switch to IAP mode by pressing `LSHIFT + RSHIFT + B`. This will be useful
+for customizing your keyboard. Remember, you can always use the QMK docs for more info. Enjoy!
