@@ -19,7 +19,7 @@ you see fit.
 
 - [x] Reverse Engineer the AnnePro IAP Protocol
 - [ ] Setup a QMK configurator site
-- [ ] Develope a better LED color management system
+- [ ] Develop a better LED color management system
 - [x] Reverse Engineer the Bluetooth Protocol (Got protocol from Obins)
 - [ ] Write a custom Bluetooth Firmware for the CC2541 BLE processor
 - [ ] Implement LED backlight / effects for the AnnePro2-Shine project
