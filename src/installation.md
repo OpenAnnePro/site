@@ -109,7 +109,6 @@ annepro2_tools --boot -t led build/annepro2-shine-C15.bin
 # for C18
 annepro2_tools --boot -t led -i=[[interface_number]] build/annepro2-shine-C18.bin
 ```
-We have also added a feature to QMK that allows you to quickly enter IAP by pressing `FN2 + ESC`. This is defined in
-the default keymaps. Check the Customization page for more info.
 
-Enjoy!
+With QMK installed, you can now easily switch to IAP mode by pressing `LSHIFT + RSHIFT + B`. This will be useful
+for customizing your keyboard. Remember, you can always use the QMK docs for more info. Enjoy!
