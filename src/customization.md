@@ -6,9 +6,28 @@ nav_order: 3
 ---
 # Special Keys on the default keymaps
 
-0. `FN2 + 8`: Disable LEDs. Keycode = KC_AP_LED_OFF
-0. `FN2 + 9`: Enable LEDs / Switch profiles. Keycode = KC_AP_LED_ON
-0. `FN2 + 0`: Change brightness. Keycode = KC_AP_LED_NEXT_INTENSITY
+0. `FN2 + 8`: Disable LEDs
+0. `FN2 + 9`: Enable LEDs / Switch profiles
+0. `FN2 + 0`: Change brightness
+0. `FN2 + -`: Change animation speed
+
+# Anne Pro 2 Specific Keycodes
+
+These are made to control annepro2-shine. You can use them with any key. Check the default profiles. They're used just
+like any other keycode.
+
+0. **KC_AP2_BT1:**               Switch to bluetooth 1
+0. **KC_AP2_BT2:**               Switch to bluetooth 2
+0. **KC_AP2_BT3:**               Switch to bluetooth 3
+0. **KC_AP2_BT4:**               Switch to bluetooth 4
+0. **KC_AP2_BT_UNPAIR:**         Unpair bluetooth
+0. **KC_AP2_USB:**               Switch to device using the USB
+0. **KC_AP_LED_ON:**             Enable LEDs
+0. **KC_AP_LED_OFF:**            Disable LEDs
+0. **KC_AP_LED_NEXT_PROFILE:**   Go to next profile
+0. **KC_AP_LED_PREV_PROFILE:**   Go to previous profile
+0. **KC_AP_LED_NEXT_INTENSITY:** Go to next brightness intensity
+0. **KC_AP_LED_SPEED:**          Go to next speed
 
 # Keymaps
 
@@ -27,6 +46,21 @@ customize. You can also see the ASCII graphic of the keyboard above it to see wh
 do much more than this. Just check the QMK docs for more info.
 
 As an example, to make the ESC key produce an "A," switch `KC_ESC` to `KC_A`.
+
+# Layers
+
+Layers are defined as different keymaps. Check [this section](https://beta.docs.qmk.fm/using-qmk/software-features/feature_layers)
+of the QMK docs for more info on them. This is also how you can create your own custom MAGIC FN key and tap layers.
+
+# Tap layers
+
+As what the previous link talks about, LT() is the function to create TAP buttons. For more information on them,
+check out [this section](https://beta.docs.qmk.fm/using-qmk/software-features/tap_hold#tapping-force-hold) of the docs.
+
+The default keymap also includes a feature where tapping then holding a tap key will repeat the tap keycode.
+
+Additionally, the MAGIC FN key is FN1 by default. You can change it to FN2 or any other layer as needed. In fact, you
+can change the MAGIC FN key to be any key, not just caps lock.
 
 # KeymapCEditor
 
