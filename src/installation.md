@@ -92,8 +92,9 @@ If the tool doesn't list the keyboard please double check you have the keyboard 
 
 # Anne Pro 2 Shine
 
-If you want the binary instead of compiling it yourself, [download it here]
-(https://ci.codetector.org/job/OpenAnnePro/job/AnnePro2-Shine/job/master/). Otherwise, follow the steps below:
+If you want the binary instead of compiling it yourself,
+[download it here](https://ci.codetector.org/job/OpenAnnePro/job/AnnePro2-Shine/job/master/).
+Otherwise, follow the steps below:
 
 Building the shine firmware is very similar to the QMK firmware.
 
