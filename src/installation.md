@@ -86,7 +86,7 @@ annepro2_tools annepro2_c18_default.bin
 ```
 The tool lists the usb devices with their information. Search for the device with the `0x04d9:8009` vid pid pair:
 `HID Dev: 04d9:8009 if: [[interface_number]] Some("USB-HID IAP")`.
-This is the keyboard, interface number can be found here.
+This is the keyboard.
 
 If the tool doesn't list the keyboard please double check you have the keyboard in IAP mode.
 
@@ -116,7 +116,7 @@ make
 # for C15
 annepro2_tools --boot -t led build/annepro2-shine-C15.bin
 # for C18
-annepro2_tools --boot -t led -i=[[interface_number]] build/annepro2-shine-C18.bin
+annepro2_tools --boot -t led build/annepro2-shine-C18.bin
 ```
 
 With QMK installed, you can now easily switch to IAP mode by pressing `LSHIFT + RSHIFT + B`. This will be useful
