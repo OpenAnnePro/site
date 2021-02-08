@@ -6,7 +6,7 @@ nav_order: 2
 ---
 
 # Install Instructions
-** WARNING: these instructions are by no means complete, feel free to ask in the
+**WARNING: these instructions are by no means complete, feel free to ask in the
 [Discord Server](https://discord.gg/ygssH9x) if you encounter any problems.
 As we are still in early test stages.**
 
@@ -17,9 +17,8 @@ Checkout the docker build script provided by `@zinosat`.
 
 # Get AnnePro2 Tools
 
-If you want the executable instead of compiling it yourself, [download it here]
-(https://ci.codetector.org/job/OpenAnnePro/job/AnnePro2-Tools/job/master/). Windows and Linux versions are available.
-Otherwise, follow the steps below:
+If you want the executable instead of compiling it yourself, [download it here](https://ci.codetector.org/job/OpenAnnePro/job/AnnePro2-Tools/job/master/).
+Windows and Linux versions are available. Otherwise, follow the steps below:
 
 0. Install the latest stable `rust` toolchain using [rustup](https://rustup.rs/)
 0. Also install [Visual Studio Community edition](https://visualstudio.microsoft.com/downloads/)
@@ -68,6 +67,7 @@ Check the [customization page]({% link customization.md %}) for more information
 # Flashing the firmware
 0. Put the keyboard into DFU/IAP mode by unplugging the keyboard, then holding ESC while plugging it back in.
 0. Run annepro2_tools with the firmware you just built.
+
 **Please substitute with the correct paths and correct bin file if you chose another keymap profile**
 ```bash
 annepro2_tools annepro2_c15_default.bin
@@ -86,14 +86,14 @@ annepro2_tools annepro2_c18_default.bin
 ```
 The tool lists the usb devices with their information. Search for the device with the `0x04d9:8009` vid pid pair:
 `HID Dev: 04d9:8009 if: [[interface_number]] Some("USB-HID IAP")`.
-This is the keyboard, interface number can be found here.
+This is the keyboard.
 
 If the tool doesn't list the keyboard please double check you have the keyboard in IAP mode.
 
 # Anne Pro 2 Shine
 
-If you want the binary instead of compiling it yourself, [download it here]
-(https://ci.codetector.org/job/OpenAnnePro/job/AnnePro2-Shine/job/master/). Otherwise, follow the steps below:
+If you want the binary instead of compiling it yourself, [download it here](https://ci.codetector.org/job/OpenAnnePro/job/AnnePro2-Shine/job/master/).
+Otherwise, follow the steps below:
 
 Building the shine firmware is very similar to the QMK firmware.
 
@@ -116,8 +116,38 @@ make
 # for C15
 annepro2_tools --boot -t led build/annepro2-shine-C15.bin
 # for C18
-annepro2_tools --boot -t led -i=[[interface_number]] build/annepro2-shine-C18.bin
+annepro2_tools --boot -t led build/annepro2-shine-C18.bin
 ```
 
 With QMK installed, you can now easily switch to IAP mode by pressing `LSHIFT + RSHIFT + B`. This will be useful
 for customizing your keyboard. Remember, you can always use the QMK docs for more info. Enjoy!
+
+# Automated Scripts
+
+Having to type the previous commands to flash the firmware can be annoying and you might want a simple script that does
+it for you. The scripts below assume you have the script and firmware files in the same directory as the
+annepro2_tools.exe executable. They flash both the main firmware and annepro2-shine and automatically restarts the
+keyboard. Modify and change the filenames as needed.
+
+# Batch script (Windows)
+
+Paste this script into a .bat file.
+```
+@ECHO OFF
+
+.\annepro2_tools.exe .\annepro2_c18_default.bin
+.\annepro2_tools.exe --boot -t led .\annepro2-shine-C18.bin
+
+pause
+```
+
+# Bash script (Linux/MacOS)
+
+Paste this script into a .sh file. If preferred, make it executable by calling `chmod +x nameOfScriptFile.sh` in the
+terminal.
+```bash
+#!/bin/sh
+
+./annepro2_tools ./annepro2_c18_default.bin
+./annepro2_tools --boot -t led ./annepro2-shine-C18.bin
+```
