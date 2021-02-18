@@ -119,8 +119,11 @@ annepro2_tools --boot -t led build/annepro2-shine-C15.bin
 annepro2_tools --boot -t led build/annepro2-shine-C18.bin
 ```
 
-With QMK installed, you can now easily switch to IAP mode by pressing `LSHIFT + RSHIFT + B`. This will be useful
-for customizing your keyboard. Remember, you can always use the QMK docs for more info. Enjoy!
+With QMK & Shine installed, you can now easily switch to IAP mode by pressing `LSHIFT + RSHIFT + B`. This will be useful
+for customizing your keyboard. Note: This shortcut will not set the LED MCU to IAP mode if Shine is not already flashed,
+meaning you will have to use the ESC method if you want to flash Shine and it currently isn't already flashed.
+
+Remember, you can always use the QMK docs and the Customization page for more info. Enjoy!
 
 # Automated Scripts
 
