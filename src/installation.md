@@ -72,23 +72,8 @@ Check the [customization page]({% link customization.md %}) for more information
 ```bash
 annepro2_tools annepro2_c15_default.bin
 ```
-If you have the C18 revision, you must specify the interface number.
-```bash
-annepro2_tools annepro2_c18_default.bin -i=[[interface_number]]
-```
-Replace [[interface number]] with the keyboard's interface number.
 
-If the tool reports can't find device please double check you have the keyboard in IAP mode.
-
-Interface number can be found by running the tool without the -i flag:
-```bash
-annepro2_tools annepro2_c18_default.bin
-```
-The tool lists the usb devices with their information. Search for the device with the `0x04d9:8009` vid pid pair:
-`HID Dev: 04d9:8009 if: [[interface_number]] Some("USB-HID IAP")`.
-This is the keyboard.
-
-If the tool doesn't list the keyboard please double check you have the keyboard in IAP mode.
+If the tool can't find the keyboard please double check you have the keyboard in IAP mode.
 
 # Anne Pro 2 Shine
 
