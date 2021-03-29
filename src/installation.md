@@ -21,10 +21,19 @@ If you want the executable instead of compiling it yourself, [download it here](
 Windows and Linux versions are available. Otherwise, follow the steps below:
 
 0. Install the latest stable `rust` toolchain using [rustup](https://rustup.rs/)
-0. Also install [Visual Studio Community edition](https://visualstudio.microsoft.com/downloads/)
-including the C/C++ module to prevent errors while compiling
+0. On Windows: also install [Visual Studio Community edition](https://visualstudio.microsoft.com/downloads/)
+including the C/C++ module to prevent errors while compiling on step 6 below. 
+0. On Linux: make sure following software/packages `pkg-config pkgconf libusb-1.0-0 libusb-dev` are installed 
+to prevent errors while compiling on step 6 below. If not, install them with
+```bash
+sudo apt-get install pkg-config pkgconf libusb-1.0-0 libusb-dev 
+```
+0. You might need to run below command to configure the right path for `pkgconfig` do its work on step 6 below.
+```bash
+export PATH_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig/
+```
 0. Download or Clone the [AnnePro2-Tools](https://github.com/OpenAnnePro/AnnePro2-Tools) project.
-0. Compile the tool using
+0. Navigate to the folder you have just downloaded or cloned and compile the tool using
 ```bash
 cargo build --release
 ```
