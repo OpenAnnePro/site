@@ -62,3 +62,4 @@ docker run --rm -it --user $(id -u) -v ${PWD}:/host ap2 bash -c 'cp /home/dev/an
 ```
 
 After that you can continue on flashing the firmware from the host system.
+
