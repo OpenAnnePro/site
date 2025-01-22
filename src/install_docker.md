@@ -13,17 +13,18 @@ Save the following into a file named `Dockerfile`
 #
 # docker run --privileged -h ap2 --rm -it -v ${PWD}:/host --user $(id -u) -w /home/dev ap2 bash
 
-FROM debian:bullseye
-MAINTAINER Davide Viti <zinosat@gmail.com>
+FROM python:3.9.21-bookworm
+MAINTAINER Davide Viti <zinosat@gmail.com>, updated by Adam Rohacs <arohacs@gmail.com>
 
-RUN sed -i \
-    -e "s|deb.debian.org|debian.fastweb.it|g" \
-    /etc/apt/sources.list
+RUN DEBIAN_FRONTEND=noninteractive apt-get update -yq && DEBIAN_FRONTEND=noninteractive apt-get install wget gpg lsb-release -yq
 
-RUN apt-get update && \
+RUN DEBIAN_FRONTEND=noninteractive apt-get update -yq && \
   DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends \
   build-essential ca-certificates less git sudo \
-  pkg-config libusb-1.0-0-dev cargo gcc-arm-none-eabi libstdc++-arm-none-eabi-newlib
+  pkg-config libusb-1.0-0-dev cargo gcc-arm-none-eabi libstdc++-arm-none-eabi-newlib python3 wget python3-pip gcc unzip wget zip gcc-avr binutils-avr avr-libc dfu-programmer dfu-util gcc-arm-none-eabi binutils-arm-none-eabi libnewlib-arm-none-eabi apt-utils build-essential
+
+RUN python3 -m pip install qmk
+RUN qmk setup -y
 
 RUN adduser --disabled-password --gecos '' dev && \
     adduser dev sudo && \
@@ -32,7 +33,7 @@ RUN adduser --disabled-password --gecos '' dev && \
 RUN cd /home/dev; sudo -H -u dev git clone https://github.com/OpenAnnePro/AnnePro2-Tools.git && \
     cd AnnePro2-Tools && cargo build --release
     
-RUN cd /home/dev; sudo -H -u dev git clone https://github.com/OpenAnnePro/qmk_firmware.git annepro-qmk --recursive --depth 1 && \
+RUN cd /home/dev; sudo -H -u dev git clone https://github.com/qmk/qmk_firmware.git annepro-qmk --recursive --depth 1 && \
     cd annepro-qmk && ./util/qmk_install.sh && make annepro2/c18
 
 RUN cd /home/dev; sudo -H -u dev git clone https://github.com/OpenAnnePro/AnnePro2-Shine.git --recursive --depth 1 && \
@@ -43,6 +44,7 @@ RUN cp /home/dev/annepro-qmk/.build/annepro2_c18_default.bin /home/dev/
 RUN cp /home/dev/AnnePro2-Shine/build/C18/annepro2-shine-C18.bin /home/dev/
 
 ENV TZ /usr/share/zoneinfo/Europe/Rome
+
 
 ```
 
@@ -60,3 +62,4 @@ docker run --rm -it --user $(id -u) -v ${PWD}:/host ap2 bash -c 'cp /home/dev/an
 ```
 
 After that you can continue on flashing the firmware from the host system.
+
